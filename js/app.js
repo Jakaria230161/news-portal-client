@@ -1,3 +1,4 @@
+// load all product section
 const loadAllProduct = async () => {
     const url = 'https://openapi.programming-hero.com/api/news/categories'
     try {
@@ -18,11 +19,9 @@ const setAllCategory = async () => {
     const uniqueArray = [];
 
     for (const category of data) {
-        // console.log(category.category_name);
 
         if (uniqueArray.indexOf(category.category_name) === -1) {
             uniqueArray.push(category.category_name);
-            // console.log(category.category_name);
 
             const li = document.createElement('li');
             li.innerHTML = `
@@ -36,7 +35,7 @@ const setAllCategory = async () => {
 
 setAllCategory();
 
-// spinner
+// spinner toggle here 
 const toggleSpinner = isLoading => {
     const spinnerSection = document.getElementById('spinner');
     if (isLoading) {
@@ -48,7 +47,7 @@ const toggleSpinner = isLoading => {
 
 const loadAllNews = async category_id => {
 
-    // spinner start
+    // spinner starting here 
     toggleSpinner(true);
 
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
@@ -59,7 +58,6 @@ const loadAllNews = async category_id => {
 }
 
 const displayNewsItem = newsAll => {
-    // console.log('newsAll', newsAll);
 
     //Sort in array
     newsAll.sort((a, b) => {
@@ -78,7 +76,7 @@ const displayNewsItem = newsAll => {
     }
 
 
-    //All new Show
+    //All news Show here
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent = '';
     newsAll.forEach(news => {
@@ -89,16 +87,16 @@ const displayNewsItem = newsAll => {
         <div class="container card mb-3"">
         <div class="row g-0">
         <div class="col-md-4">
-         <img src=${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+            <img src=${news.thumbnail_url}" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-md-8">
-         <div class="card-body">
-         <h5 class="card-title">${news.title ? news.title : 'Title not found'}</h5>
-         <p class="card-text">${news.details.length > 300 ? news.details.slice(0, 300) + '...' : news.details}</p>
+            <div class="card-body">
+            <h5 class="card-title">${news.title ? news.title : 'Title not found'}</h5>
+            <p class="card-text">${news.details.length > 300 ? news.details.slice(0, 300) + '...' : news.details}</p>
 
 
         
-         <div class="mb-3 mt-5" >
+            <div class="mb-3 mt-5" >
             <div class="d-flex justify-content-between row g-0">
                 <div class="col-md-2">
                     <img src="${news.author.img ? news.author.img : 'Author Image not found'}" style="width: 50px; height: 50px;" class="rounded-circle" alt="...">
@@ -119,19 +117,20 @@ const displayNewsItem = newsAll => {
         </div>
         
 
-      </div>
+        </div>
     </div>
-  </div>
+    </div>
 </div>
         `;
         newsContainer.appendChild(div);
     })
 
-    //Spinner stop
+    //Spinner stop here
     toggleSpinner(false);
 
 }
 
+// load news details here
 const loadNewsDetails = async news_id => {
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
     const res = await fetch(url);
@@ -139,6 +138,7 @@ const loadNewsDetails = async news_id => {
     displayNewsDetails(data.data[0]);
 }
 
+// display news details here 
 const displayNewsDetails = newsDetails => {
     const modalTitle = document.getElementById('detailsModalTitle');
     modalTitle.innerText = newsDetails.title;
