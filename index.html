@@ -37,24 +37,74 @@
     <body class="container mx-auto">
         <!-- header section start here  -->
         <header>
-            <div class="navbar bg-base-100">
+            <div class="navbar bg-base-100 my-5">
                 <div class="flex-1">
-                    <a class="btn btn-ghost normal-case text-xl">News Mania</a>
+                    <a class="btn btn-ghost normal-case text-xl"><kbd class="kbd kbd-lg">News</kbd>Mania</a>
                 </div>
                 <div class="flex-none">
                     <ul class="menu menu-horizontal p-0">
                         <li><a>Home</a></li>
                         <li><a>About</a></li>
-                        <li><a>News</a></li>
+                        <li><a><span class="text-blue-500 font-bold underline underline-offset-2">News</span></a></li>
                         <li><a>Blog</a></li>
                         <img src="image/Avatar-pic.png" alt="">
                     </ul>
                 </div>
             </div>
         </header>
-        <hr>
         <!-- header section end here  -->
+        <hr>
 
+        <!-- submenu starting here  -->
+    <div class="justify-between conten-center mt-5">
+        <ul class="menu menu-horizontal bg-base-100 rounded-box p-0">
+            <li><a>Home</a></li>
+            <li><a>Breaking news</a></li>
+            <li><a>Regular news</a></li>
+            <li><a>International news</a></li>
+            <li><a>Sports</a></li>
+            <li><a><span class="text-blue-600 font-bold">Entertainment</span></a></li>
+            <li><a>Culture</a></li>
+            <li><a>Arts</a></li>
+            <li><a>All News</a></li>
+        </ul>
+    </div>
+        <!-- submenu end here  -->
+
+        <!-- news found section  -->
+        <input type="text" placeholder="News found" class="input input-bordered input-success w-full" />
+        <!-- news found section end  -->
+
+        <!-- sort by section  -->
+        <section class="flex px-auto my-5 justify-between">
+            <div>
+                <h4 class="inline font-semibold">Sort by View:</h4>
+                <select class="select select-success w-6/12 max-w-xs">
+                    <option disabled selected>Default</option>
+                    <option>Home</option>
+                    <option>Braking News</option>
+                    <option>Regular News</option>
+                    <option>International News</option>
+                    <option>Sports</option>
+                    <option>Entertainment</option>
+                    <option>Culture</option>
+                    <option>Arts</option>
+                    <option>All News</option>
+                </select>
+            </div>
+            
+            <div>
+                <button class="btn btn-primary">Today's Pick</button>
+                <button class="btn btn-outline btn-primary">Trending</button>
+            </div>
+        </section>
+
+        <!-- main section start here  -->
+        <main>
+            <section>
+            </section>
+        </main>
+        <!-- main section end here  -->
 
 
         <!-- JavaScript      -->
